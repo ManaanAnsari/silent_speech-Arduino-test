@@ -14,14 +14,16 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('hifigan_checkpoint', None, 'filename of hifi-gan generator checkpoint')
 
 class Vocoder(object):
-    def __init__(self, device='cuda'):
+    def __init__(self, device='cpu'):
         assert FLAGS.hifigan_checkpoint is not None
         checkpoint_file = FLAGS.hifigan_checkpoint
         config_file = os.path.join(os.path.split(checkpoint_file)[0], 'config.json')
         with open(config_file) as f:
             hparams = AttrDict(json.load(f))
         self.generator = Generator(hparams).to(device)
-        self.generator.load_state_dict(torch.load(checkpoint_file)['generator'])
+        # self.generator.load_state_dict(torch.load(checkpoint_file)['generator'])
+        self.generator.load_state_dict(torch.load(checkpoint_file, map_location='cpu')['generator'])
+
         self.generator.eval()
         self.generator.remove_weight_norm()
 

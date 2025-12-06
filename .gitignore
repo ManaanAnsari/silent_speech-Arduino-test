@@ -5,3 +5,7 @@ models/
 deepspeech-0.7.0-models.pbmm
 deepspeech-0.7.0-models.scorer
 lm.binary
+evaluation_output/
+pretrained_models/
+pretrained_models.zip
+emg_data.tar.gz.gz

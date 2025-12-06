@@ -47,7 +47,7 @@ def main():
 
     models = []
     for fname in FLAGS.models:
-        state_dict = torch.load(fname)
+        state_dict = torch.load(fname, map_location='cpu')
         model = Model(testset.num_features, testset.num_speech_features, len(phoneme_inventory)).to(device)
         model.load_state_dict(state_dict)
         models.append(model)
