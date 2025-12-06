@@ -1,11 +1,12 @@
-.vscode/
 __pycache__/
 emg_data/
 models/
 deepspeech-0.7.0-models.pbmm
 deepspeech-0.7.0-models.scorer
+temp_auto_push.bat
 lm.binary
 evaluation_output/
 pretrained_models/
 pretrained_models.zip
-emg_data.tar.gz.gz
+emg_data.tar.gz.gz.gitignore
+temp_interactive_push.bat
